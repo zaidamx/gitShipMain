@@ -42,6 +42,9 @@ boolean atWarp;
 boolean showDialogue;
 
 Star[] stars = new Star[400];
+Planet earth;
+Planet moon;
+Holodeck holodeck;
 Checksum healthbar;
 Junk junk;
 
@@ -82,10 +85,19 @@ void draw(){
      stars[i].update();
      stars[i].display();
     }
+    //location
+    if(!atWarp) { 
+     earth.update();
+     earth.display();
+     moon.update();
+     moon.display();
+    }
+    //holodeck
+    holodeck.update();
+    holodeck.display();
   
     //end of attitude control
     if(!attitudeControl) endDrift();
-  
   }
   else {
     noSignal();
@@ -116,6 +128,12 @@ void init(){
   for(String item : cargo){
     println(item);
   }
+  //engineering adjustments
+  DeregulateDilithuimColumator();
+  //location
+  earth = new Planet(2*width/3, height/4, 50);
+  moon = new Planet(2.1*width/3, height/3, 10);
+  holodeck = new Holodeck(holo);
   //junk
   junk = new Junk();
   
@@ -128,9 +146,14 @@ void dropOutOfWarp(){
   float rndY = random(0.25*height, 0.5*height);
   x = map(rndX, 0.25*width, 0.75*width, 0, 10);
   y = map(rndY, 0.25*height, 0.5*height, 0, 10);
+  earth = new Planet(rndX, rndY, random(50, 375));
+  earth.sliders();
   location = "sector " + int(x) + "-" + int(y);
 }
 
+/////////////////////////////////////////////////////
+///////////engineering working party/////////////////
+/////////////////////////////////////////////////////
 void beginDrift(){
   drift += 0.01;
   pushMatrix();
@@ -141,6 +164,13 @@ void beginDrift(){
 void endDrift(){
   popMatrix();
 }
+
+void DeregulateDilithuimColumator(){
+  healthbar.checksum = healthbar.checksum & 0;
+}
+/////////////////////////////////////////////////////
+//////////end engineering working party//////////////
+/////////////////////////////////////////////////////
 
 void noSignal(){
   noStroke();
@@ -375,37 +405,15 @@ void showCargo(){
       Font.draw(105, 325, 1, _f, _o, _r, _space, _w, _a, _r, _p, _space, _s, _p, _e, _e, _d);
     }
     
-    //// press space
-    //// to engage
-    //// warp engines
-    
-    //else {
-    //  fill(255);  
-    //  Font.draw(105, 305, 1, _p, _r, _e, _s, _s, _space, _s, _p, _a, _c, _e);
-    //  Font.draw(105, 315, 1, _t, _o, _space, _e, _n, _g, _a, _g, _e);
-    //  Font.draw(105, 325, 1, _w, _a, _r, _p, _space, _e, _n, _g, _i, _n, _e, _s);
-    //}
-    
-    //// press space
-    //// to open
-    //// hailing freqs
-    
-    //else {
-    //  fill(255);
-    //  Font.draw(105, 305, 1, _p, _r, _e, _s, _s, _space, _s, _p, _a, _c, _e);
-    //  Font.draw(105, 315, 1, _t, _o, _space, _o, _p, _e, _n, _space, _h, _a, _i, _l, _i, _n, _g);
-    //  Font.draw(105, 325, 1, _f, _r, _e, _q, _u, _e, _n, _c, _i, _e, _s);
-    //}
-    
-    // mouse + click
+    // press space
     // to engage
-    // enemy ship
+    // warp engines
     
     else {
-      fill(255);
-      Font.draw(105, 305, 1, _m, _o, _u, _s, _e, _space, _a, _n, _d, _space, _c, _l, _i, _c, _k);
-      Font.draw(105, 315, 1, _t, _o, _space, _f, _i, _r, _e, _space, _p, _h, _a, _s, _e, _r, _s);
-      Font.draw(105, 325, 1, _a, _t, _space, _e, _n, _e, _m, _y, _space, _s, _h, _i, _p);
+      fill(255);  
+      Font.draw(105, 305, 1, _p, _r, _e, _s, _s, _space, _s, _p, _a, _c, _e);
+      Font.draw(105, 315, 1, _t, _o, _space, _e, _n, _g, _a, _g, _e);
+      Font.draw(105, 325, 1, _w, _a, _r, _p, _space, _e, _n, _g, _i, _n, _e, _s);
     }
     
     } 

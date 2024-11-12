@@ -1,5 +1,5 @@
 class Checksum {
-  int checksum = 0;
+  int checksum = 1;
   color[] barColors = { color(#FF004D), color(#29ADFF), color(#FFEC27), color(#FFEC27), color(#FFEC27), color(#FFEC27), color(#FFEC27), color(#FFEC27), color(#FFEC27), color(#C2C3C7) };
 
   Checksum(){ }
