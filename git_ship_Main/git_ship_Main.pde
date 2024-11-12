@@ -25,7 +25,7 @@ float drift;
 color white = color(255);
 color grey = color(100);
 color black = color(0);
-color holo = color(255, 255, 0); //use 0, 255, 255 for copilot's training ground
+color holo = color(0, 255, 255);
 
 //slider values: 0, 10 values set in code
 float slider1 = 0;
@@ -166,7 +166,9 @@ void endDrift(){
 }
 
 void DeregulateDilithuimColumator(){
-  healthbar.checksum = healthbar.checksum & 0;
+  char[] bin = binary(healthbar.checksum).toCharArray();
+  bin[bin.length-2] = '0';
+  healthbar.checksum = unbinary(new String(bin));
 }
 /////////////////////////////////////////////////////
 //////////end engineering working party//////////////
