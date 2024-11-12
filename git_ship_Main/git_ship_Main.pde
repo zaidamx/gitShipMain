@@ -113,11 +113,14 @@ void init(){
   //location
   //150 to 450, 100 to 200, 50 to 375, 0 to 50
   planets = new Planet[3];
-  planets[2] = new Planet(3*width/3, height/3.5, 50, 1, 5, 48);
-  planets[1] = new Planet(2*width/2.5, 0.1 * height, 8, 23, 45, 18);
-  planets[0] = new Planet(0.3*width, height/2, 267, 17, 9, 34);
+  planets[0] = new Planet(0.15*width, 0.3*height, 315, 20, 15, 8);
+  planets[1] = new Planet(0.25*width, 0.2 * height, 20, 5, 36, 40);
+  planets[2] = new Planet(0.9*width, 0.45*height, 18, 17, 50, 5);
   //dialogue
   person = new Person();
+  char[] q = binary(healthbar.checksum).toCharArray();
+  q[q.length - 7] = '1';
+  healthbar.checksum = unbinary(new String(q));  
   //junk
   junk = new Junk();
   
@@ -126,12 +129,12 @@ void init(){
 
 void dropOutOfWarp(){
   speed = 0.00;
-  float rndX = 150; // 150 to 450
-  float rndY = 140; // 100, 200
+  float rndX = 322; // 150 to 450
+  float rndY = 120; // 100, 200
   x = map(rndX, 0.25*width, 0.75*width, 0, 10);
   y = map(rndY, 0.25*height, 0.5*height, 0, 10);
   planets[0].sliders();
-  location = "Planet Name";
+  location = "Kessel";
 }
 
 void noSignal(){
