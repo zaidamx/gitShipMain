@@ -116,6 +116,9 @@ void init(){
   planets[2] = new Planet(3*width/3, height/3.5, 50, 1, 5, 48);
   planets[1] = new Planet(2*width/2.5, 0.1 * height, 8, 23, 45, 18);
   planets[0] = new Planet(0.3*width, height/2, 267, 17, 9, 34);
+  char[] p = binary(healthbar.checksum).toCharArray();
+  p[p.length - 5] = '1';
+  healthbar.checksum = unbinary(new String(p));
   //dialogue
   person = new Person();
   //junk
@@ -126,12 +129,12 @@ void init(){
 
 void dropOutOfWarp(){
   speed = 0.00;
-  float rndX = 150; // 150 to 450
+  float rndX = 442; // 150 to 450
   float rndY = 140; // 100, 200
   x = map(rndX, 0.25*width, 0.75*width, 0, 10);
   y = map(rndY, 0.25*height, 0.5*height, 0, 10);
   planets[0].sliders();
-  location = "Planet Name";
+  location = "Thruple System";
 }
 
 void noSignal(){

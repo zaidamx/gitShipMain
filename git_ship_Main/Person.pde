@@ -18,7 +18,7 @@ class Person {
   Letter[] display = { _a, _b, _c };
   
   Person(){
-    SetIdentity(3);
+    SetIdentity(0);
   }
   
   void SetIdentity(int i){
@@ -96,7 +96,7 @@ class Person {
   void backdrop(){
     //fill left half of screen with something
     //0, 0 --> 12, 11.25
-    fill(grey);
+    fill(#1D5D02);
     rect(0, 0, width, 281.25);
   }
   
@@ -204,9 +204,9 @@ class Person {
     //12 $ per line, 4 lines max --> 48 character message
     //+40 in y for each line at font 4
     fill(shirt);
-    Font.draw(320, 50, 4, _w, _e, _space, _c, _o, _m, _e, _space, _i, _n);
-    Font.draw(320, 90, 4, _p, _e, _a, _c, _e, _exclam);
-    Font.draw(320, 130, 4, _2);
-    Font.draw(320, 170, 4, _3);
+    Font.draw(320, 50, 4, _w, _e, _l, _c, _o, _m, _e, _space, _t, _o);
+    Font.draw(320, 90, 4, _t, _h, _e, _space, _t, _h, _r, _u, _p, _l, _e);
+    Font.draw(320, 130, 4, _s, _y, _s, _t, _e, _m, _exclam, _space, _w, _e);
+    Font.draw(320, 170, 4, _h, _o, _p, _e, _space, _u, _space, _l, _i, _k, _e, _s);
   }
 }
