@@ -11,7 +11,7 @@ class Combat {
   float shootTime = 5;
   PVector shootPosition;
   PVector hitPosition;
-  boolean attacking = false;
+  boolean attacking = true;
   
   color shadow = color(50, 100, 80);
   color grey = color(0, 135, 80);
