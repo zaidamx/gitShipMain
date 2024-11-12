@@ -41,6 +41,7 @@ boolean atWarp;
 boolean showDialogue;
 
 Star[] stars = new Star[400];
+SpaceStation alpha;
 Person person;
 Checksum healthbar;
 Junk junk;
@@ -68,6 +69,8 @@ void draw(){
      stars[i].update();
      stars[i].display();
     }
+    //location
+     alpha.display();
   
     //viewscreen
     if(showDialogue){
@@ -104,6 +107,18 @@ void init(){
   for(String item : cargo){
     println(item);
   }
+  //location
+  char[] bin = binary(healthbar.checksum).toCharArray();
+  bin[bin.length-4] = '1';
+  bin[bin.length-8] = '1';
+  
+  //Space Station Alpha
+  alpha = new SpaceStation();
+  bin[bin.length-8] = '0';
+  //Space Station Alpha
+  
+  healthbar.checksum = unbinary(new String(bin));
+  
   //dialogue
   person = new Person();
   //junk
@@ -114,11 +129,11 @@ void init(){
 
 void dropOutOfWarp(){
   speed = 0.00;
-  float rndX = random(0.25*width, 0.75*width);
-  float rndY = random(0.25*height, 0.5*height);
+  float rndX = 298;
+  float rndY = 149;
   x = map(rndX, 0.25*width, 0.75*width, 0, 10);
   y = map(rndY, 0.25*height, 0.5*height, 0, 10);
-  location = "sector " + int(x) + "-" + int(y);
+  location = "Trafalgar Stn";
 }
 
 void noSignal(){
