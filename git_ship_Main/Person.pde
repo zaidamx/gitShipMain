@@ -54,12 +54,12 @@ class Person {
         teeth = color(#FFFFFF);
         break;
       case 3:
-        shirt = color(#FFEC27);
-        shadow = color(#FFA300); //face & shirt shadows
-        eyes = color(#000000); //eyes & shirt detail 1
+        shirt = color(#484141);
+        shadow = color(#000000); //face & shirt shadows
+        eyes = color(#761010); //eyes & shirt detail 1
         skin = color(#AB5236);
-        skinShadow = color(#833F29); //face & shirt shadows
-        hair = color(#5C2D1D); //hair & shirt detail 2
+        skinShadow = color(#6C3220); //face & shirt shadows
+        hair = color(#000000); //hair & shirt detail 2
         teeth = color(#FFFFFF);
         break;
     }
@@ -96,7 +96,7 @@ class Person {
   void backdrop(){
     //fill left half of screen with something
     //0, 0 --> 12, 11.25
-    fill(grey);
+    fill(#6C0206);
     rect(0, 0, width, 281.25);
   }
   

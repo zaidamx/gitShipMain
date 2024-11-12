@@ -42,6 +42,7 @@ boolean showDialogue;
 
 Star[] stars = new Star[400];
 Person person;
+Combat enemy;
 Checksum healthbar;
 Junk junk;
 
@@ -68,6 +69,9 @@ void draw(){
      stars[i].update();
      stars[i].display();
     }
+    //combat
+    enemy.update();
+    enemy.display();
   
     //viewscreen
     if(showDialogue){
@@ -106,6 +110,8 @@ void init(){
   }
   //dialogue
   person = new Person();
+  //combat
+  enemy = new Combat();
   //junk
   junk = new Junk();
   
