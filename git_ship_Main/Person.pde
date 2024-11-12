@@ -18,7 +18,7 @@ class Person {
   Letter[] display = { _a, _b, _c };
   
   Person(){
-    SetIdentity(2);
+    SetIdentity(0);
   }
   
   void SetIdentity(int i){
@@ -204,9 +204,9 @@ class Person {
     //12 $ per line, 4 lines max --> 48 character message
     //+40 in y for each line at font 4
     fill(shirt);
-    Font.draw(320, 50, 4, _s, _h, _i, _e, _l, _d, _s, _space, _a, _r, _e);
-    Font.draw(320, 90, 4, _h, _o, _l, _d, _i, _n, _g, _space, _f, _o, _r);
-    Font.draw(320, 130, 4, _n, _o, _w, _period, _space, _d, _o, _w, _n, _space, _t, _o);
-    Font.draw(320, 170, 4, _1, _slash, _2, _space, _s, _t, _r, _e, _n, _g, _t, _h);
+    Font.draw(320, 50, 4, _t, _h, _e, _space, _e, _n, _g, _i, _n, _e, _s);
+    Font.draw(320, 90, 4, _c, _a, _n, _n, _i, _e, _space, _t, _a, _k, _e);
+    Font.draw(320, 130, 4, _m, _u, _c, _h, _space, _m, _o, _r, _e, _space, _o, _f);
+    Font.draw(320, 170, 4, _t, _h, _i, _s, _space, _c, _a, _p, _apostrophe, _n, _exclam);
   }
 }
